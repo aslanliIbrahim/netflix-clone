@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import cards_data from "../assets/cards/Cards_data.js";
 
-const TitleCards = () => {
+const TitleCards = ({ title, category }) => {
   const cardsRef = useRef();
   useEffect(() => {
     cardsRef.current.addEventListener("wheel", (e) => {
@@ -11,7 +11,7 @@ const TitleCards = () => {
   }, []);
   return (
     <div className="mt-[50px] mb-[30px] ">
-      <h2 className="mb-2">Popular on Netflix</h2>
+      <h2 className="mb-2 text-2xl font-bold">{title ? title : "Popular on Netflix"}</h2>
       <div
         ref={cardsRef}
         className="card-list flex gap-2.5 overflow-x-scroll scrollbar-hide"
