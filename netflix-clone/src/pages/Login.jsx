@@ -1,7 +1,55 @@
 import React from "react";
-
+import logo from "../assets/logo.png";
 const Login = () => {
-  return <div>Login</div>;
+  return (
+    <div className="login h-screen bg-[url(../assets/background_banner.jpg)] py-[20px] px-[8%]">
+      <img src={logo} alt="logo" className="w-[150px]" />
+      <div className="login-form w-full max-w-[450px] bg-[#212121] bg-opacity-70 rounded-[5px] mx-auto p-14">
+        <h1 className="text-3xl font-bold mb-7">Sign Up</h1>
+        <form action="">
+          <input
+            type="text"
+            placeholder="Your name"
+            className="w-full h-[50px] bg-[#333] text-white my-[12px] mx-0 rounded-[4px] py-4 px-[10px] font-medium text-[16px]"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            className="w-full h-[50px] bg-[#333] text-white my-[12px] mx-0 rounded-[4px] py-4 px-[10px] font-medium text-[16px]"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full h-[50px] bg-[#333] text-white my-[12px] mx-0 rounded-[4px] py-4 px-[10px] font-medium text-[16px]"
+          />
+          <button className="w-full p-4 bg-[#e50914] text-white rounded-[4px] text-[16px] mt-5 cursor-pointer">
+            Sign In
+          </button>
+          <div className="form-help flex justify-between items-center  mt-5 text-[#b3b3b3] text-[13px]">
+            <div className="remember flex gap-[5px] items-center">
+              <input type="checkbox" className="w-[18px] h-[18px]" />
+              <label type="checkbox">Remember Me</label>
+            </div>
+            <p>Need help</p>
+          </div>
+        </form>
+        <div className="form-switch mt-10 text-[#737373]">
+          <p>
+            New to Netflix?{" "}
+            <span className="ml-[6px] text-white cursor-pointer">
+              Sign Up Now
+            </span>
+          </p>
+          <p>
+            Already have account?{" "}
+            <span className="ml-[6px] text-white cursor-pointer">
+              Sign In Now
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Login;
