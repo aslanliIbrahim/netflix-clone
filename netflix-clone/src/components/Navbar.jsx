@@ -1,12 +1,29 @@
-import React from "react";
+import React, { use, useEffect, useRef } from "react";
 import logo from "../assets/logo.png";
 import searchIcon from "../assets/search_icon.svg";
 import bellIcon from "../assets/bell_icon.svg";
 import profileImg from "../assets/profile_img.png";
 import caretIcon from "../assets/caret_icon.svg";
 const Navbar = () => {
+  const navRef = useRef();
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        navRef.current.classList.add("bg-[#141414]");
+      } else {
+        navRef.current.classList.remove("bg-[#141414]");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <nav className="w-full py-[20px] px-[6%] flex justify-between fixed text-[14px] text-[#e5e5e5] bg-gradient-to-b from-black/70 via-transparent to-transparent z-10">
+    <nav
+      ref={navRef}
+      className="w-full py-[20px] px-[6%] flex justify-between fixed text-[14px] text-[#e5e5e5] bg-gradient-to-b from-black/70 via-transparent to-transparent z-10 "
+    >
       <div className="flex items-center gap-4 ">
         <img src={logo} alt="logo" className="w-[90px] object-contain" />
         <ul className="flex gap-[20px]">

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import cards_data from "../assets/cards/Cards_data.js";
+import { Link } from "react-router-dom";
 
 const TitleCards = ({ title, category }) => {
   const [apiData, setApiData] = useState([]);
@@ -38,7 +39,11 @@ const TitleCards = ({ title, category }) => {
         className="card-list flex gap-2.5 overflow-x-scroll scrollbar-hide"
       >
         {apiData.map((item, index) => (
-          <div className="card relative min-w-[240px] shrink-0" key={index}>
+          <Link
+            to={`/player/${item.id}`}
+            className="card relative min-w-[240px] shrink-0"
+            key={index}
+          >
             <img
               src={`https://image.tmdb.org/t/p/w500/${item.backdrop_path}`}
               className="w-[240px] rounded-[4px] cursor-pointer"
@@ -47,7 +52,7 @@ const TitleCards = ({ title, category }) => {
             <p className="absolute bottom-2.5 right-2.5">
               {item.original_title}
             </p>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
