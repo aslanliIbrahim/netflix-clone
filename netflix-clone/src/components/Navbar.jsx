@@ -4,6 +4,8 @@ import searchIcon from "../assets/search_icon.svg";
 import bellIcon from "../assets/bell_icon.svg";
 import profileImg from "../assets/profile_img.png";
 import caretIcon from "../assets/caret_icon.svg";
+import { Link } from "react-router-dom";
+import { logout } from "../firebase";
 const Navbar = () => {
   const navRef = useRef();
   useEffect(() => {
@@ -59,7 +61,7 @@ const Navbar = () => {
             className="w-[15px] cursor-pointer "
           />
           <div className="group-hover:block hidden absolute top-full right-0 w-max bg-[#191919] p-4 rounded-[10px] text-uppercase z-[1]">
-            <p className="text-[13px] cursor-pointer underline">
+            <p onClick={()=> {logout()}} className="text-[13px] cursor-pointer underline">
               Sign Out of Netflix
             </p>
           </div>
