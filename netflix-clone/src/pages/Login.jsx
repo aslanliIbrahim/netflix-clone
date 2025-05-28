@@ -1,24 +1,32 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import { login, signup } from "../firebase";
+import netflix_spinner from "../assets/netflix_spinner.gif";
+import { toast } from "react-toastify";
 const Login = () => {
   const [signState, setSignState] = useState("Sign In");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [loading, setLoading] = useState(false);
   const usert_auth = async (e) => {
     e.preventDefault();
+    setLoading(true);
     if (signState === "Sign Up") {
       await signup(email, password, name);
     } else {
       await login(email, password);
     }
+    setLoading(false);
   };
   const handleSignState = () => {
     setSignState((prev) => (prev === "Sign In" ? "Sign Up" : "Sign In"));
   };
-  return (
+  return loading ? (
+    <div className="loginspinner w-full h-[100vh] flex justify-center items-center bg-[black]">
+      <img className="w-16" src={netflix_spinner} alt="loading" />
+    </div>
+  ) : (
     <div className="login h-screen bg-[url(../assets/background_banner.jpg)] py-[20px] px-[8%]">
       <img src={logo} alt="logo" className="w-[150px]" />
       <div className="login-form w-full max-w-[450px] bg-[#212121] bg-opacity-70 rounded-[5px] mx-auto p-14">
