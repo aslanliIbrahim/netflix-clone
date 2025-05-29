@@ -27,7 +27,7 @@ const Login = () => {
       <img className="w-16" src={netflix_spinner} alt="loading" />
     </div>
   ) : (
-    <div className="login sm:py-3.5 sm:px-[5%] h-screen md:bg-[url('../assets/background_banner.jpg')] py-[20px] px-[8%] ">
+    <div className="login sm:py-3.5 sm:px-[5%] h-screen md:bg-[url('/netflix-clone/assets/background_banner.jpg')] py-[20px] px-[8%] ">
       <img src={logo} alt="logo" className="w-[150px]" />
       <div className="login-form sm:p-5 sm:mt-8 w-full md:max-w-[450px] bg-[#212121] bg-opacity-70 rounded-[5px] md:mx-auto md:p-14">
         <h1 className="text-3xl font-bold mb-7">{signState}</h1>
